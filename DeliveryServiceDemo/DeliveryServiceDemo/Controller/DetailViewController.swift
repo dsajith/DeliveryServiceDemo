@@ -14,7 +14,6 @@ class DetailViewController: UIViewController {
 
     var mapView: GMSMapView!
     var detailLabel: UILabel!
-    
     var delivery: Delivery!
 
     
@@ -30,13 +29,18 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //This method will create view to google map
 
     func setUpMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: delivery.location.lat, longitude: delivery.location.lng, zoom: 10.0)
+        //GMSCameraPosition that tells the map to display the
+
+        let camera = GMSCameraPosition.camera(withLatitude: delivery.location.lat, longitude: delivery.location.lng, zoom: 15.0)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.delegate = self
         self.view.addSubview(mapView)
 
+        // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: delivery.location.lat, longitude:delivery.location.lng)
         marker.title = delivery.location.address
@@ -49,9 +53,10 @@ class DetailViewController: UIViewController {
 
     }
     
-   
+   //This will create  label for delivery description
     
     func setUpLabel() {
+        
         detailLabel = UILabel()
         detailLabel.numberOfLines = 0
         detailLabel.backgroundColor = .lightGray
@@ -75,20 +80,18 @@ extension DetailViewController: GMSMapViewDelegate {
         print("didLongPressInfoWindowOf")
     }
     
-    /* set a custom Info Window */
+    // custom view when user tapped to see marker adderss
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let view = UIView(frame: CGRect.init(x: 0, y: 0, width: 200, height: 70))
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.lightGray
         view.layer.cornerRadius = 6
         
-        let lbl1 = UILabel(frame: CGRect.init(x: 8, y: 8, width: view.frame.size.width - 16, height: 15))
-        lbl1.text = "Testing"
-        view.addSubview(lbl1)
-        
-        let lbl2 = UILabel(frame: CGRect.init(x: lbl1.frame.origin.x, y: lbl1.frame.origin.y + lbl1.frame.size.height + 3, width: view.frame.size.width - 16, height: 15))
-        lbl2.text = delivery.location.address
-        lbl2.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        view.addSubview(lbl2)
+        let label = UILabel(frame: view.frame)
+        label.text = delivery.location.address
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        view.addSubview(label)
         
         return view
     }

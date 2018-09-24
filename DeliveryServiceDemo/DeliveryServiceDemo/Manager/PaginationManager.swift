@@ -8,11 +8,13 @@
 
 import Foundation
 
+
+/// This manager is used for pagination 
 class PaginationManager  {
     var isLoading = false
     var deliveries = [Delivery]()
-    var limit : Int = 7
-    var offset = 1
+    var limit : Int = 20
+    var offset = 0
     var numberItemLoaded: Int = 0 {
         didSet {
             offset += numberItemLoaded
@@ -25,7 +27,7 @@ class PaginationManager  {
     func clearData() {
         limit = 7
         numberItemLoaded = 0
-        offset = 1
+        offset = 0
         deliveries.removeAll()
     }
 }

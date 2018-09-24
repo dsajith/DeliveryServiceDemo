@@ -24,10 +24,19 @@ class ViewController: UIViewController {
         initializeTableView()
         initializeLoader()
         loadData()
-       
+        if networkManager.reachability.connection == .none {
+            Utility.showAlert(alert: "OOPS!", message: "No Internet Connection",controller: self)
+        }
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    
+    //This method will create tableview for to diplay delivery item
     func initializeTableView() {
         tableView = UITableView(frame: self.view.bounds)
         tableView.delegate = self
@@ -41,14 +50,19 @@ class ViewController: UIViewController {
         
     }
     
+    //This method will create for progress loader in navigtion right bar
     func initializeLoader() {
         progressLoader = UIActivityIndicatorView(frame: CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 20, height: 20))
         progressLoader.color = .red
         progressLoader.hidesWhenStopped = true
         progressLoader.startAnimating()
-        self.view.addSubview(progressLoader)
+        let rightBarButton = UIBarButtonItem(customView: progressLoader)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+
     }
     
+    
+    // This method will fetch delivery item from sever
     func loadData() {
         progressLoader.startAnimating()
         networkManager.fetchDeliveries() {
@@ -60,15 +74,20 @@ class ViewController: UIViewController {
                 if error == nil {
                     weakSelf.tableView.reloadData()
                 } else {
-                    Utility.showAlert(alert: "Error", message: "Error loading data, pull to reload data",controller: weakSelf)
+                    Utility.showAlert(alert: "Error", message: error?.localizedDescription ?? "Pull to refresh",controller: weakSelf)
                 }
             }
         }
     }
     
     @objc func refresh() {
-        networkManager.deliveries.removeAll()
-        loadData()
+        if networkManager.reachability.connection != .none {
+            networkManager.clearData()
+            loadData()
+        } else {
+            self.refreshControl.endRefreshing()
+            Utility.showAlert(alert: "OOPS!", message: "No Internet Connection",controller: self)
+        }
     }
     
 }
@@ -97,8 +116,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == networkManager.deliveries.count, networkManager.hasMoreDataToLoad {
-            loadData()
+        if indexPath.row == networkManager.deliveries.count - 1, networkManager.hasMoreDataToLoad {
+            if networkManager.reachability.connection != .none {
+                loadData()
+            }
         }
     }
 }

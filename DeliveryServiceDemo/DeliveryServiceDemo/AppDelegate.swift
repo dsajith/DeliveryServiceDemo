@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyDM-oxrjVYMo_UW-nKR_V8ILD9Mer5X0ZQ")
+        //Add Google Map API Key In Plist
+        GMSServices.provideAPIKey(NetworkManager.shared.googleApiKey)
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = ViewController()
         let navgationController = UINavigationController(rootViewController: viewController)
@@ -46,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+  
+
 
 
 }

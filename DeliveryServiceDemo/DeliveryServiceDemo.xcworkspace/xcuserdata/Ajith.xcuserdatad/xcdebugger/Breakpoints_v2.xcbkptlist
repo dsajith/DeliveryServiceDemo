@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeliveryServiceDemo/Manager/PaginationManager.swift"
-            timestampString = "559397824.761712"
+            timestampString = "559489596.275268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "numberItemLoaded"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "hasMoreDataToLoad"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

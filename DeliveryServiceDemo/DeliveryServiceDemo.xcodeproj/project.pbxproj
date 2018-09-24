@@ -12,7 +12,6 @@
 		DFE041C5EAD74BFC927CFCF0 /* Pods_DeliveryServiceDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E474F6E5263EEBAEF27410 /* Pods_DeliveryServiceDemo.framework */; };
 		F8AEADE5215701CB006941FA /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEADE4215701CB006941FA /* Utility.swift */; };
 		F8AEADE72157B3D5006941FA /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AEADE62157B3D5006941FA /* PaginationManager.swift */; };
-		F8AEADEA2157BCF3006941FA /* DeliveryDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8AEADE82157BCF3006941FA /* DeliveryDataModel.xcdatamodeld */; };
 		F8E302962156609200F8745E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E302952156609200F8745E /* AppDelegate.swift */; };
 		F8E3029B2156609200F8745E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E302992156609200F8745E /* Main.storyboard */; };
 		F8E3029D2156609200F8745E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8E3029C2156609200F8745E /* Assets.xcassets */; };
@@ -57,7 +56,6 @@
 		D226D542594BCCFB9CE04DAA /* Pods_DeliveryServiceDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryServiceDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AEADE4215701CB006941FA /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		F8AEADE62157B3D5006941FA /* PaginationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
-		F8AEADE92157BCF3006941FA /* DeliveryDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DeliveryDataModel.xcdatamodel; sourceTree = "<group>"; };
 		F8E302922156609200F8745E /* DeliveryServiceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryServiceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E302952156609200F8745E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E3029A2156609200F8745E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				F8E302A12156609200F8745E /* Info.plist */,
 				F8E302DD2156735400F8745E /* Extension+App.swift */,
 				F8AEADE4215701CB006941FA /* Utility.swift */,
-				F8AEADE82157BCF3006941FA /* DeliveryDataModel.xcdatamodeld */,
 			);
 			path = DeliveryServiceDemo;
 			sourceTree = "<group>";
@@ -465,7 +462,6 @@
 				F8E302DC2156675500F8745E /* Location.swift in Sources */,
 				F8AEADE72157B3D5006941FA /* PaginationManager.swift in Sources */,
 				F8E302DA2156674400F8745E /* Delivery.swift in Sources */,
-				F8AEADEA2157BCF3006941FA /* DeliveryDataModel.xcdatamodeld in Sources */,
 				F8E302E021567EFB00F8745E /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,19 +760,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F8AEADE82157BCF3006941FA /* DeliveryDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F8AEADE92157BCF3006941FA /* DeliveryDataModel.xcdatamodel */,
-			);
-			currentVersion = F8AEADE92157BCF3006941FA /* DeliveryDataModel.xcdatamodel */;
-			path = DeliveryDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F8E3028A2156609200F8745E /* Project object */;
 }
